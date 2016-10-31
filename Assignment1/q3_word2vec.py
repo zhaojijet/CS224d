@@ -54,7 +54,9 @@ def softmaxCostAndGradient(predicted, target, outputVectors, dataset):
     Pwo_wi = softmax(np.dot(predicted, outputVectors.T))
     cost = -1. * np.log(Pwo_wi[0][target])
     Pwo_wi[0][target] -= 1.
+    # center word gradient update
     gradPred = np.dot(Pwo_wi[0], outputVectors).flatten()
+    # other word gradient update
     grad = np.dot(Pwo_wi.T, predicted)
     ### END YOUR CODE
     
